@@ -1,0 +1,12 @@
+{
+  "name": "agentteams-monitor-skills",
+  "description": "实时监控 Claude Code Agent Teams 运行状态，从 GitHub 自动克隆安装，支持端口配置",
+  "files": [
+    "SKILL.md",
+    "install.js",
+    "README.md"
+  ],
+  "hooks": {
+    "postinstall": "node install.js"
+  }
+}

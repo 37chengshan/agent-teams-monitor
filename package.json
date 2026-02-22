@@ -1,0 +1,17 @@
+{
+  "name": "agentteams-monitor-skills",
+  "version": "1.0.0",
+  "description": "Real-time monitoring dashboard for Claude Code Agent Teams - Skill version with configurable ports",
+  "private": false,
+  "type": "module",
+  "bin": {
+    "agentteams-monitor-skills": "./install.js"
+  },
+  "scripts": {
+    "postinstall": "node install.js"
+  },
+  "keywords": ["claude", "skill", "agent", "teams", "monitor"],
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
