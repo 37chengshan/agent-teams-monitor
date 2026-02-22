@@ -1,0 +1,28 @@
+{
+  "name": "claude-skill-agent-teams-monitor",
+  "version": "1.0.0",
+  "description": "实时监控 Claude Code Agent Teams 运行状态，支持自定义端口配置",
+  "main": "index.js",
+  "scripts": {
+    "install": "node install.js",
+    "postinstall": "node install.js"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "skill",
+    "agent",
+    "teams",
+    "monitor"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_USERNAME/claude-skill-agent-teams-monitor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/claude-skill-agent-teams-monitor/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/claude-skill-agent-teams-monitor#readme"
+}
