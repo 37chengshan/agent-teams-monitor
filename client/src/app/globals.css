@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Dark theme (default) */
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+  --bg-tertiary: #334155;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --border-color: #334155;
+  --border-light: #475569;
+
+  --accent-primary: #3B82F6;
+  --accent-success: #22C55E;
+  --accent-warning: #EAB308;
+  --accent-error: #EF4444;
+  --accent-info: #8B5CF6;
+
+  /* Semantic colors */
+  --primary: #3B82F6;
+  --primary-light: #60A5FA;
+  --primary-dark: #2563EB;
+  --surface: #1E293B;
+  --surface-hover: #334155;
+}
+
+/* Light theme - clean and modern */
+[data-theme="light"] {
+  --bg-primary: #FAFBFC;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F3F4F6;
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-muted: #9CA3AF;
+  --border-color: #E5E7EB;
+  --border-light: #F3F4F6;
+
+  --accent-primary: #2563EB;
+  --accent-success: #059669;
+  --accent-warning: #D97706;
+  --accent-error: #DC2626;
+  --accent-info: #7C3AED;
+
+  /* Semantic colors for light */
+  --primary: #2563EB;
+  --primary-light: #DBEAFE;
+  --primary-dark: #1D4ED8;
+  --surface: #FFFFFF;
+  --surface-hover: #F9FAFB;
+}
+
+/* Apply text colors */
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+[data-theme="light"] .bg-background-primary {
+  background-color: var(--bg-primary);
+}
+
+[data-theme="light"] .bg-background-secondary {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme="light"] .bg-background-tertiary {
+  background-color: var(--bg-tertiary);
+}
+
+[data-theme="light"] .text-slate-100,
+[data-theme="light"] .text-slate-200 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .text-slate-300,
+[data-theme="light"] .text-slate-400 {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .text-slate-500 {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .border-slate-700,
+[data-theme="light"] .border-slate-600,
+[data-theme="light"] .border-slate-500 {
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .border-slate-800 {
+  border-color: var(--border-light);
+}
+
+[data-theme="light"] .hover\:bg-background-tertiary:hover {
+  background-color: var(--surface-hover);
+}
+
+[data-theme="light"] .hover\:bg-slate-700:hover,
+[data-theme="light"] .hover\:bg-slate-600:hover {
+  background-color: var(--bg-tertiary);
+}
+
+[data-theme="light"] .bg-slate-700,
+[data-theme="light"] .bg-slate-600,
+[data-theme="light"] .bg-slate-500 {
+  background-color: var(--bg-tertiary);
+}
+
+[data-theme="light"] .bg-slate-800 {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme="light"] .bg-slate-900 {
+  background-color: var(--bg-primary);
+}
+
+/* Override for settings page specific elements */
+[data-theme="light"] input[type="text"],
+[data-theme="light"] input[type="number"],
+[data-theme="light"] select {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] input[type="text"]:focus,
+[data-theme="light"] input[type="number"]:focus,
+[data-theme="light"] select:focus {
+  border-color: var(--accent-primary);
+}
+
+/* Custom properties for component use */
+:root {
+  --primary: #3B82F6;
+  --primary-light: #60A5FA;
+  --primary-dark: #2563EB;
+  --surface: #1E293B;
+  --surface-hover: #334155;
+}
+
+[data-theme="light"] {
+  --primary: #2563EB;
+  --primary-light: #DBEAFE;
+  --primary-dark: #1D4ED8;
+  --surface: #FFFFFF;
+  --surface-hover: #F9FAFB;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* Animation utilities */
+@keyframes message-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.message-enter {
+  animation: message-enter 0.3s ease-out;
+}
+
+.status-pulse {
+  animation: status-pulse 2s infinite;
+}
+
+/* Tab transition animations */
+.animate-in {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+
+.slide-in-from-bottom-2 {
+  animation-name: slideInFromBottom;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: ease;
+  transition-duration: 150ms;
+}
+
+/* Exception: skip transition for scrollbar */
+::-webkit-scrollbar,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  transition: none;
+}
