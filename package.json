@@ -1,28 +1,32 @@
 {
-  "name": "claude-skill-agent-teams-monitor",
+  "name": "agent-teams-monitor",
   "version": "1.0.0",
-  "description": "实时监控 Claude Code Agent Teams 运行状态，支持自定义端口配置",
-  "main": "index.js",
-  "scripts": {
-    "install": "node install.js",
-    "postinstall": "node install.js"
-  },
-  "keywords": [
-    "claude",
-    "claude-code",
-    "skill",
-    "agent",
-    "teams",
-    "monitor"
+  "description": "实时监控 Claude Code Agent Teams 运行状态面板",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
   ],
-  "author": "",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/YOUR_USERNAME/claude-skill-agent-teams-monitor.git"
+  "bin": {
+    "agent-teams": "./bin/agent-teams"
   },
-  "bugs": {
-    "url": "https://github.com/YOUR_USERNAME/claude-skill-agent-teams-monitor/issues"
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "build": "npm run build --workspace=server && npm run build --workspace=client",
+    "build:server": "npm run build --workspace=server",
+    "build:client": "npm run build --workspace=client",
+    "start": "npm run start --workspace=server",
+    "lint": "npm run lint --workspaces",
+    "test": "npm run test --workspaces",
+    "test:e2e": "playwright test"
   },
-  "homepage": "https://github.com/YOUR_USERNAME/claude-skill-agent-teams-monitor#readme"
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "@playwright/test": "^1.41.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
