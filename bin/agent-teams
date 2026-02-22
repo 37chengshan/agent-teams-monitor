@@ -1,0 +1,62 @@
+#!/usr/bin/env node
+
+/**
+ * Agent Teams Monitor CLI
+ * 用法: agent-teams [命令]
+ */
+
+import { spawn } from 'child_process';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const projectPath = __dirname;
+
+const args = process.argv.slice(2);
+const command = args[0] || 'start';
+
+const commands = {
+  start: 'npm run dev',
+  server: 'npm run dev:server',
+  client: 'npm run dev:client',
+  build: 'npm run build',
+  test: 'npm run test',
+  help: null,
+};
+
+const runCommand = (cmd) => {
+  const [script, ...scriptArgs] = cmd.split(' ');
+  const child = spawn(script, scriptArgs, {
+    cwd: projectPath,
+    stdio: 'inherit',
+    shell: true,
+  });
+
+  child.on('exit', (code) => {
+    process.exit(code || 0);
+  });
+};
+
+if (command === 'help' || !commands[command]) {
+  console.log(`
+🤖 Agent Teams Monitor CLI
+
+用法: agent-teams [命令]
+
+命令:
+  start       启动开发服务器 (前端 + 后端) [默认]
+  server      仅启动后端服务器
+  client      仅启动前端
+  build       构建生产版本
+  test        运行测试
+  help        显示帮助信息
+
+示例:
+  agent-teams          启动服务
+  agent-teams server   仅启动后端
+  agent-teams help     查看帮助
+`);
+} else {
+  runCommand(commands[command]);
+}
