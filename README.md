@@ -50,7 +50,6 @@ Agent Teams Monitor 是一个 Claude Code Skill，用于实时监控 Claude Code
 - 📋 **任务面板** - 追踪任务进度
 - 🎨 **主题切换** - 浅色/深色模式
 - 🔍 **消息筛选** - 按类型、状态过滤
-- 📝 **结构化日志** - 使用 pino 日志系统
 
 ### 🛠️ 技术栈
 
@@ -58,7 +57,6 @@ Agent Teams Monitor 是一个 Claude Code Skill，用于实时监控 Claude Code
 - ✅ **状态管理**: Zustand
 - ✅ **后端**: Express, Socket.io, TypeScript
 - ✅ **实时通信**: WebSocket
-- ✅ **日志系统**: Pino
 
 ---
 
@@ -72,7 +70,7 @@ Agent Teams Monitor 是一个 Claude Code Skill，用于实时监控 Claude Code
 请帮我安装 Agent Teams Monitor：
 
 1. 克隆项目并进入目录：
-   git clone https://github.com/37chengshan/agent-teams-monitor.git
+   git clone https://github.com/op7418/agent-teams-monitor.git
    cd agent-teams-monitor
 
 2. 安装依赖：
@@ -98,7 +96,7 @@ Agent Teams Monitor 是一个 Claude Code Skill，用于实时监控 Claude Code
 #### 1. 克隆项目
 
 ```bash
-git clone https://github.com/37chengshan/agent-teams-monitor.git
+git clone https://github.com/op7418/agent-teams-monitor.git
 cd agent-teams-monitor
 ```
 
@@ -177,13 +175,6 @@ SERVER_PORT=8080
 NEXT_PUBLIC_SOCKET_URL=http://localhost:8080
 ```
 
-### 日志配置
-
-```bash
-# 日志级别: trace, debug, info, warn, error, fatal
-LOG_LEVEL=info
-```
-
 ---
 
 ## ❓ 常见问题
@@ -200,10 +191,6 @@ A: 检查 `NEXT_PUBLIC_SOCKET_URL` 配置是否正确指向后端地址。
 
 A: 在控制面板创建团队后，团队消息会自动显示在消息面板。
 
-### Q: 日志在哪里查看？
-
-A: 服务日志默认输出到控制台。生产环境可配置日志文件输出。
-
 ---
 
 ## 📁 项目结构
@@ -214,17 +201,13 @@ agent-teams-monitor/
 │   ├── src/
 │   │   ├── components/   # React 组件
 │   │   ├── lib/          # 状态管理
-│   │   ├── hooks/        # 自定义 Hooks
-│   │   ├── types/        # TypeScript 类型
 │   │   └── app/          # 页面
 │   └── package.json
 ├── server/         # Node.js 后端
 │   ├── src/
-│   │   ├── watchers/     # 文件监控 (chokidar)
-│   │   ├── services/     # 业务逻辑
-│   │   ├── socket/       # WebSocket 服务
-│   │   ├── logger.ts    # Pino 日志
-│   │   └── config.ts    # 配置
+│   │   ├── routes/      # API 路由
+│   │   ├── services/    # 业务逻辑
+│   │   └── websocket/   # WebSocket
 │   └── package.json
 └── package.json    # 工作空间配置
 ```
@@ -245,12 +228,6 @@ npm run test:e2e
 
 # 构建生产版本
 npm run build
-
-# 构建客户端
-npm run build:client
-
-# 构建服务端
-npm run build:server
 ```
 
 ---

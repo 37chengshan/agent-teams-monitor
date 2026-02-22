@@ -1,30 +1,28 @@
 {
-  "name": "agent-teams-monitor",
+  "name": "claude-skill-agent-teams-monitor",
   "version": "1.0.0",
-  "description": "Real-time monitoring dashboard for Claude Code Agent teams",
-  "private": true,
-  "workspaces": [
-    "server",
-    "client"
-  ],
+  "description": "实时监控 Claude Code Agent Teams 运行状态，支持自定义端口配置",
+  "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
-    "dev:server": "npm run dev --workspace=server",
-    "dev:client": "npm run dev --workspace=client",
-    "build": "npm run build --workspace=server && npm run build --workspace=client",
-    "start": "npm run start --workspace=server",
-    "lint": "npm run lint --workspaces",
-    "test": "npm run test --workspaces",
-    "test:e2e": "playwright test",
-    "test:coverage": "npm run test:coverage --workspaces"
+    "install": "node install.js",
+    "postinstall": "node install.js"
   },
-  "devDependencies": {
-    "concurrently": "^8.2.2",
-    "typescript": "^5.3.3",
-    "vitest": "^1.2.0",
-    "@playwright/test": "^1.41.0"
+  "keywords": [
+    "claude",
+    "claude-code",
+    "skill",
+    "agent",
+    "teams",
+    "monitor"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_USERNAME/claude-skill-agent-teams-monitor.git"
   },
-  "engines": {
-    "node": ">=18.0.0"
-  }
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/claude-skill-agent-teams-monitor/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/claude-skill-agent-teams-monitor#readme"
 }
