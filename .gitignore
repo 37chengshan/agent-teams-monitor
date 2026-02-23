@@ -4,3 +4,13 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Build outputs
+client/.next/
+client/tsconfig.tsbuildinfo
+server/dist/
+
+# Environment files
+.env
+.env.local
+.serena/
