@@ -34,8 +34,8 @@ npm run dev
 ```
 
 ### 访问地址
-- 前端: http://localhost:3000
-- 后端: http://localhost:3002
+- 前端: http://localhost:3665
+- 后端: http://localhost:3666
 
 ### 使用 / 命令
 
@@ -50,9 +50,9 @@ npm run dev
 
 | 变量 | 说明 | 默认值 |
 |------|------|--------|
-| PORT | Client 端口 | 3000 |
-| SERVER_PORT | Server 端口 | 3002 |
-| NEXT_PUBLIC_SOCKET_URL | Socket 连接地址 | http://localhost:3002 |
+| PORT | Client 端口 | 3665 |
+| SERVER_PORT | Server 端口 | 3666 |
+| NEXT_PUBLIC_SOCKET_URL | Socket 连接地址 | http://localhost:3666 |
 
 ## Required Tools
 

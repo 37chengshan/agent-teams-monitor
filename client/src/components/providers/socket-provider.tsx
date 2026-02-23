@@ -26,7 +26,7 @@ interface SocketProviderProps {
   demoMode?: boolean
 }
 
-export function SocketProvider({ children, url = process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:3002', demoMode = false }: SocketProviderProps) {
+export function SocketProvider({ children, url = process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:3666', demoMode = false }: SocketProviderProps) {
   const { socket, isConnected, connectionError, emit, on, connect } = useSocket({ url, autoConnect: !demoMode })
   const { addMessage, setConversations, setMessages, selectTeam } = useInboxStore()
   const { setTeams } = useTeamsStore()

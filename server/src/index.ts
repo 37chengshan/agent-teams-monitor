@@ -152,3 +152,10 @@ export class App {
     logger.info('Agent Teams Monitor stopped')
   }
 }
+
+const app = new App()
+
+app.start().catch((err) => {
+  logger.error({ err }, 'Failed to start app')
+  process.exit(1)
+})

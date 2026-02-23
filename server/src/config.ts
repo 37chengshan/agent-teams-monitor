@@ -28,7 +28,7 @@ function getTeamsPath(): string {
 
 function getServerPort(): number {
   const port = process.env.PORT || process.env.SERVER_PORT
-  return port ? parseInt(port, 10) : 3002
+  return port ? parseInt(port, 10) : 3666
 }
 
 function getCorsOrigin(): string | string[] {

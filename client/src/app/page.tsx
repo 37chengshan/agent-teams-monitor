@@ -86,7 +86,7 @@ export default function Home() {
   // Use environment variable to determine demo mode
   // Defaults to true if not set
   const demoMode = process.env.NEXT_PUBLIC_DEMO_MODE !== 'false'
-  const socketUrl = process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:3002'
+  const socketUrl = process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:3666'
 
   return (
     <SocketProvider url={socketUrl} demoMode={demoMode}>
