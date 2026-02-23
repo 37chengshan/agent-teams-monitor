@@ -1,12 +1,14 @@
 {
   "name": "agent-teams-monitor",
-  "description": "实时监控 Claude Code Agent Teams 运行状态",
-  "files": [
-    "SKILL.md",
-    "install.js",
-    "README.md"
+  "description": "实时监控 Claude Code Agent Teams 运行状态的面板",
+  "triggers": [
+    "启动 agent-teams-monitor",
+    "agent teams 监控",
+    "启动 Agent Teams Monitor"
   ],
-  "hooks": {
-    "postinstall": "node install.js"
+  "instructions": "SKILL.md",
+  "env": {
+    "PORT": "3000",
+    "SERVER_PORT": "3002"
   }
 }
